@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuário - Loja de Roupas Femininas</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffcce6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 10px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            border-color: #66afe9;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Registro de Usuário</h2>
+        <form action="/register" method="post">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="address">Endereço:</label>
+            <textarea id="address" name="address" required></textarea>
+            <label for="phonenumber">Telefone:</label>
+            <input type="tel" id="phonenumber" name="phonenumber" required pattern="[0-9]{10,}" title="Digite um número de telefone válido">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm_password">Confirmar Senha:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <input type="submit" value="Registrar">
+        </form>
+        <div class="signup-link">Já possui uma conta? <a href="/">Faça login aqui</a></div>
+    </div>
+</body>
+
+</html>
