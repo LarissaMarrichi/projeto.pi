@@ -1,0 +1,33 @@
+import sqlite3
+import os
+
+# Caminho para o arquivo do banco de dados
+db_path = os.path.join('data', 'clients.db')
+
+# Conecta ao banco de dados
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+
+# Cria a tabela 'clients' se não existir
+cursor.execute('''CREATE TABLE IF NOT EXISTS clients (
+                    id INTEGER PRIMARY KEY,
+                    name TEXT,
+                    email TEXT,
+                    password TEXT,
+                    phonenumber TEXT,
+                    address TEXT  -- Corrigido de 'addres' para 'address'
+                )''')
+
+# Dados dos clientes a serem inseridos na tabela
+clients = [
+    ('João Silva', 'joao@email.com', 'senha1', '123456789', 'Rua A, 123'),
+    ('Maria Santos', 'maria@email.com', 'senha2', '987654321', 'Avenida B, 456'),
+    ('Pedro Oliveira', 'pedro@email.com', 'senha3', '456789123', 'Rua C, 789')
+]
+
+# Insere os dados dos clientes na tabela
+cursor.executemany("INSERT INTO clients (name, email, password, phonenumber, address) VALUES (?, ?, ?, ?, ?)", clients)  -- Corrigido de 'addres' para 'address'
+
+# Commit (confirmar) as alterações e fechar a conexão com o banco de dados
+conn.commit()
+conn.close()
